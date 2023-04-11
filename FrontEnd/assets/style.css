@@ -26,7 +26,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+	display: inline-block;
 }
 body {
 	line-height: 1;
@@ -59,7 +59,7 @@ header {
 	margin: 50px 0
 }
 section {
-	margin: 50px 0
+	margin: 50px;
 }
 
 h1{
@@ -186,3 +186,31 @@ footer nav ul {
 	margin: 2em
 }
 
+/* CSS rajotutee par moi */
+
+.filtres {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 50px;
+}
+
+.btn-filtres {
+	background-color: #ffffff;
+	padding: 0 20px;
+	box-sizing: border-box;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: Syne;
+	font-size: 16px;
+	font-weight: 700;
+	color: #1D6154;
+}
+
+.btn-filtres:hover {
+	cursor: pointer;
+	color: #ffffff;
+	background-color: #1D6154;
+}
