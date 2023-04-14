@@ -25,11 +25,11 @@
 	</header>
     <div id="login">
     <h2>Log In</h2>
-    <form action="">
+    <form action="http://localhost:5678/api/users/login" target="_self" method="post">
         <label for="E-mail">E-mail</label><br>
-        <input type="text" id="email" name="mail" class="zoneText"><br>
+        <input type="email" id="email" name="mail" class="zoneText" pattern="email" required><br>
         <label for="motDePasse">Mot de passe</label><br>
-        <input type="text" id="motDePasse" name="mdp" class="zoneText"><br>
+        <input type="password" id="motDePasse" name="mdp" class="zoneText" required><br>
     </form>
     <input type="submit" value="Se connecter" id="submit">
     <a href="#" id="oubli">Mot de passe oublie</a>
