@@ -59,7 +59,8 @@ header {
 	margin: 50px 0
 }
 section {
-	margin: 50px;
+	margin: 50px 0;
+	width: 100%;
 }
 
 h1{
@@ -139,7 +140,8 @@ li:hover {
 }
 #contact {
 	width: 50%;
-margin: auto;
+	margin: 0 auto;
+	display: block;
 }
 #contact > * {
 	text-align: center;
@@ -183,7 +185,7 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
 /* CSS rajotutee par moi */
@@ -210,7 +212,7 @@ footer nav ul {
 }
 
 .btn-filtres:hover {
-	cursor: pointer;
+
 	color: #ffffff;
 	background-color: #1D6154;
 }

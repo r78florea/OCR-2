@@ -75,14 +75,15 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
+
 }
 
 h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
+	margin-bottom: 60px;
 }
 nav ul {
 	display: flex;
@@ -244,6 +245,8 @@ body {
     padding: 10px;
     font-size: 14px;
     border: none;
+	display: block;
+	cursor: pointer;
 }
 
 #submit:hover {
@@ -254,3 +257,11 @@ body {
     color: black;
 }
 
+label {
+	margin-bottom: 5px;
+	display: block;
+}
+
+input {
+	margin-bottom: 20px;
+}
