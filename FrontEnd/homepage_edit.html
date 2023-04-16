@@ -41,14 +41,14 @@
 		<section class="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
-				<a href="#" id="link-btn-modifier">
+				<a href="#" class="link-btn-modifier">
 				<span id="img-icon" class="material-symbols-outlined">
 					edit_square <p class="icone">modifier</p>
 				</span>
 			</a>
 			</figure>
 			<article>
-				<a href="#" id="link-btn-modifier">
+				<a href="#" class="link-btn-modifier">
 				<span id="intro-icon" class="material-symbols-outlined">
 					edit_square <p class="icone">modifier</p>
 					
@@ -67,11 +67,28 @@
 		<section id="portfolio">
 
 			<h2 id="mesprojets">Mes Projets
-				<a href="#" id="link-btn-modifier">
+
+				<section class="modale hidden">
+					<button class="btn-close">⨉</button>
+						<h2>Galerie photo</h2>
+						<div id="galerie-modale">
+
+						</div>
+						<hr>
+						<button id="btnAjouterPhoto">
+							Ajouter une photo
+						</button>
+						<button id="supprimerGalerie">
+							Supprimer la galerie
+						</button>
+				</section>
+
+				<div class="overlay hidden"></div>
+				<button href="#" class="link-btn-modifier btn btn-modifier" id="btn-modale">
 				<span class="material-symbols-outlined">
 					edit_square <p class="icone">modifier</p>
 					</span>
-				</a>
+				</button>
 			</h2>
 						  
 			 <div class="filtres">

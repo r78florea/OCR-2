@@ -14,12 +14,12 @@ afficheTravaux(0);
 
 // Fonction d'affichage des travaux
 function afficheTravaux(categorie) {
-    
+
     const sectionGallery = document.querySelector(".gallery");
-    
+
     // Remise à zéro de la section gallery
     sectionGallery.innerHTML = "";
-    
+
     // Filtrage des travaux
     let travauxFiltres = works;
     if (categorie != 0) {
@@ -29,7 +29,7 @@ function afficheTravaux(categorie) {
     }
 
     // Affichage des travaux
-    travauxFiltres.forEach(function (work) {    
+    travauxFiltres.forEach(function (work) {
         const figure = document.createElement("figure")
         const img = document.createElement("img");
         const figCaption = document.createElement("figcaption");
@@ -39,14 +39,14 @@ function afficheTravaux(categorie) {
         figure.appendChild(figCaption);
         sectionGallery.appendChild(figure);
     })
-      
+
 }
 
 // Creation des filtres
 function afficheFiltres() {
-    
+
     const sectionFiltres = document.querySelector(".filtres")
-    
+
     // Création du bouton Tous
     const button = document.createElement("button");
     button.id = "btn-0";
@@ -56,7 +56,7 @@ function afficheFiltres() {
         afficheTravaux(0)
     });
     sectionFiltres.appendChild(button)
-    
+
     // Création des autres boutons
     categories.forEach(function (categorie) {
         const button = document.createElement("button");
@@ -64,7 +64,7 @@ function afficheFiltres() {
         button.innerText = categorie.name;
         button.classList.add("btn-filtres");
         button.addEventListener("click", function () {
-            afficheTravaux(categorie.id)
+            afficheTravaux(categorie.id);
         });
         sectionFiltres.appendChild(button);
     }
@@ -72,3 +72,41 @@ function afficheFiltres() {
     )
 }
 
+// Creation de la fonctionalite d'ouverture et de fermeture de la modale
+
+
+// Selection des valeurs dans des variables des differents boutons: 
+let modale = document.querySelector(".modale");
+let overlay = document.querySelector(".overlay");
+let btnLanceModale = document.querySelector("#btn-modale");
+let btnFermeModale = document.querySelector(".btn-close");
+
+// ajout de l'eventlistner sur le bouton de lancement
+btnLanceModale.addEventListener("click", (e) => {
+        e.preventDefault();
+        ouvreModale();
+});
+
+// Creation de la fonction qui permet le lancement de la modale
+function ouvreModale() {
+        modale.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+}
+
+// Creation de l'eventListener sur le bouton de fermeture
+btnFermeModale.addEventListener("click", (e) => {
+        e.preventDefault();
+        fermeModale();
+})
+
+// Creation de la fonction qui permet la fermeture de la modale
+function fermeModale() {
+        modale.classList.add("hidden");
+        overlay.classList.add("hidden");
+}
+
+// Creation de l'eventListener qui permet la fermeture de la modale en cliquant en dehors de celle ci
+overlay.addEventListener('click', (e) => {
+        e.preventDefault();
+        fermeModale();
+})

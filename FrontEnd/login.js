@@ -5,8 +5,6 @@ btnSubmit.addEventListener('click', (e)=> {
     connexion();
 })
 
-
-
 //Creation de la fonction de connexion
 
 async function connexion() {  
@@ -36,9 +34,4 @@ async function connexion() {
         document.location.href="./homepage_edit.html";
     } else {
         alert('Echec de la connexion: l\'e-mail ou le mot de passe sont incorrects')
-}
-
-}
-
-
-
+}}

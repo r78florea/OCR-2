@@ -228,6 +228,7 @@ footer nav ul {
 }
 
 .btn-filtres:hover {
+	cursor: pointer;
 	color: #ffffff;
 	background-color: #1D6154;
 }
