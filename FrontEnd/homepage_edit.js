@@ -8,7 +8,7 @@ const categoriesApi = await fetch(`http://localhost:5678/api/categories`)
 const categories = await categoriesApi.json()
 //console.log(categories)
 
-afficheFiltres();
+// afficheFiltres();
 afficheTravaux(0);
 
 

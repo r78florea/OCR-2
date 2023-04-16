@@ -99,27 +99,27 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
-#introduction {
+.introduction {
 	display: flex;
 	align-items: center;
 }
-#introduction figure {
-	flex: 1
+.introduction figure {
+	flex: 1;
 }
-#introduction img {
+.introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
 }
 
-#introduction article {
+.introduction article {
 	flex: 1
 }
-#introduction h2 {
+.introduction h2 {
 	margin-bottom: 1em;
 }
 
-#introduction p {
+.introduction p {
 	margin-bottom: 0.5em;
 }
 #portfolio h2 {
@@ -190,6 +190,23 @@ footer nav ul {
 
 /* CSS rajotutee par moi */
 
+
+.link-edit {
+	text-decoration: none;
+}
+.link-edit:link {
+	color: black;
+}
+.link-edit:hover {
+	color: blue;
+}
+.link-edit:visited {
+	color: black;
+}
+.link-edit:active {
+	color: blue;
+}
+
 .filtres {
 	display: flex;
 	flex-direction: row;
@@ -214,4 +231,77 @@ footer nav ul {
 .btn-filtres:hover {
 	color: #ffffff;
 	background-color: #1D6154;
+}
+
+.publication {
+	/* color: white; */
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: black;
+	gap: 20px;
+
+}
+
+.publication .material-symbols-outlined p {
+	color: #ffffff;
+	font-weight: 300;
+}
+
+.publication .material-symbols-outlined {
+	color: #ffffff;
+	font-weight: 300;
+}
+
+.material-symbols-outlined {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+	color: black;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+ p.icone {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	color: black;
+}
+
+#mesprojets {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 30px;
+}
+
+#img-icon {
+	margin: 15px 0 0 55px;
+}
+
+#intro-icon{
+	margin-bottom: 15px;
+}
+
+#link-btn-modifier {
+	text-decoration: none;
+}
+
+#btn-publier {
+	cursor: pointer;
+	text-align: center;
+	height: 40px;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	padding: 10px 20px;
+	font-weight: 500;
+	border: none;
+	border-radius: 60px;
+	background-color: white;
+	color: black;
 }

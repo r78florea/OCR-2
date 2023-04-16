@@ -190,6 +190,22 @@ footer nav ul {
 
 /* CSS rajotutee par moi */
 
+.link {
+	text-decoration: none;
+}
+.link:link {
+	color: black;
+}
+.link:hover {
+	color: blue;
+}
+.link:visited {
+	color: black;
+}
+.link:active {
+	color: blue;
+}
+
 .filtres {
 	display: flex;
 	flex-direction: row;
@@ -215,3 +231,137 @@ footer nav ul {
 	color: #ffffff;
 	background-color: #1D6154;
 }
+
+/* A partir de la se trouve le code CSS pour la page login */
+/* 
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 160px;
+}
+
+#gras {
+    font-weight: 600;
+}
+
+.zoneText {
+    gap: 20px;
+    width: 380px;
+    height: 50px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-size: 20px;
+}
+
+#submit {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+	display: block;
+	cursor: pointer;
+}
+
+#submit:hover {
+	cursor: pointer;
+}
+
+#oubli:hover:active:visited {
+    color: black;
+}
+
+label {
+	margin-bottom: 5px;
+	display: block;
+}
+
+input {
+	margin-bottom: 20px;
+} */
+
+/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
+
+/* Ici s'arrete le code CSS pour la page login */
+
+
+/* Ici commence le code CSS pour la page home_edit1 */
+
+/* .publication {
+	color: white;
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: black;
+	gap: 20px;
+}
+
+.publication .material-symbols-outlined p {
+	color: #ffffff;
+	font-weight: 300;
+}
+
+.publication .material-symbols-outlined {
+	color: #ffffff;
+	font-weight: 300;
+}
+
+.material-symbols-outlined {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+	color: black;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+ p.icone {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	color: black;
+}
+
+#mesprojets {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 30px;
+}
+
+#img-icon {
+	margin: 15px 0 0 55px;
+}
+
+#intro-icon{
+	margin-bottom: 15px;
+}
+
+#link-btn-modifier {
+	text-decoration: none;
+}
+
+#btn-publier {
+	cursor: pointer;
+	text-align: center;
+	height: 40px;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	padding: 10px 20px;
+	font-weight: 500;
+	border: none;
+	border-radius: 60px;
+	background-color: white;
+	color: black;
+} */
+
+/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
+
+
+/* Ici s'arrete le code CSS pour la page home_edit1 */
+
+

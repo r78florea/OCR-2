@@ -189,6 +189,22 @@ footer nav ul {
 
 /* CSS rajotutee par moi */
 
+.link-login {
+	text-decoration: none;
+}
+.link-login:link {
+	color: black;
+}
+.link-login:hover {
+	color: blue;
+}
+.link-login:visited {
+	color: black;
+}
+.link-login:active {
+	color: blue;
+}
+
 body {
     background-color:  #FFFEF8
 }
@@ -230,6 +246,7 @@ body {
 
 #gras {
     font-weight: 600;
+	cursor: pointer;
 }
 
 .zoneText {
@@ -265,3 +282,4 @@ label {
 input {
 	margin-bottom: 20px;
 }
+
