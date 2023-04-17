@@ -313,25 +313,36 @@ footer nav ul {
 }
 
 .modale {
-	border: 2px solid black;
+	/* margin: 500px 1500px; */
+	border: none;
 	width: 630px;
-	height: 730px;
+	height: 780px;
 	background-color: white;
 	z-index: 2;
+	border-radius: 10px;
+
 }
 
 .hidden {
 	display: none;
 }
 
-#galerie-modale {
-	height: 400px;
+.galerie-modale {
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	display: grid;
+	height: 480px;
+	margin: 0 60px; 						/*ATTENTION MARGINS AJOUTES*/  
 	border: 1px solid red;
+	grid-column-gap: 25px;
+	grid-row-gap: 5px;
+
 }
 #btnAjouterPhoto {
+	display: block;
 	border: none;
 	border-radius: 60px;
-	height: 35px;
+	width: 237px;
+	height: 37px;
 	font-size: 14px;
 	color: white;
 	font-family: 'Work Sans', sans-serif;
@@ -349,4 +360,62 @@ footer nav ul {
 		background: rgba(0, 0, 0, 0.5);
 		/* backdrop-filter: blur(3px); */
 		z-index: 1;
+}
+
+#titre-modale {
+	font-size: 25px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	color: black;
+}
+
+#divBtnClose {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.btn-close {
+	cursor: pointer;
+	margin: 30px 35px 0 0;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+#divider {
+	width: 420px;
+}
+
+#divBtnGalerie {
+	margin-top: 40px;  						/* ATTENTION MARGINS AJOUTES*/
+	gap: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#supprimerGalerie {
+	display: block;
+	border: none;
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #D65353;
+	;
+}
+
+#img-modale {
+	width: 78px;
+}
+#figCaption-modale {
+	font-size: 12px;
+	font-family: 'Work Sans', sans-serif;
+	color: black;
+	font-weight: 400;
+}
+#figure-modale {
+	display: inline-block;
 }

@@ -83,30 +83,53 @@ let btnFermeModale = document.querySelector(".btn-close");
 
 // ajout de l'eventlistner sur le bouton de lancement
 btnLanceModale.addEventListener("click", (e) => {
-        e.preventDefault();
-        ouvreModale();
+    e.preventDefault();
+    ouvreModale();
 });
 
 // Creation de la fonction qui permet le lancement de la modale
 function ouvreModale() {
-        modale.classList.remove("hidden");
-        overlay.classList.remove("hidden");
+    modale.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    afficheTravauxModale();
 }
-
 // Creation de l'eventListener sur le bouton de fermeture
 btnFermeModale.addEventListener("click", (e) => {
-        e.preventDefault();
-        fermeModale();
+    e.preventDefault();
+    fermeModale();
 })
-
-// Creation de la fonction qui permet la fermeture de la modale
+// Creation fermeture de la modale
 function fermeModale() {
-        modale.classList.add("hidden");
-        overlay.classList.add("hidden");
+    modale.classList.add("hidden");
+    overlay.classList.add("hidden");
 }
-
 // Creation de l'eventListener qui permet la fermeture de la modale en cliquant en dehors de celle ci
 overlay.addEventListener('click', (e) => {
-        e.preventDefault();
-        fermeModale();
+    e.preventDefault();
+    fermeModale();
 })
+
+//affichage des projets a l'interieur de la modale 
+
+function afficheTravauxModale() {
+
+    let conteneurModale = document.querySelector(".galerie-modale");
+    conteneurModale.innerHTML = "";
+
+    let travauxModale = works;
+
+    travauxModale.forEach(function (work) {
+        const figure = document.createElement("figure");
+        figure.id = "figure-modale";
+        const img = document.createElement("img");
+        img.id = "img-modale";
+        const figCaption = document.createElement("figcaption");
+        figCaption.id = "figCaption-modale";
+        img.src = work.imageUrl;
+        figCaption.innerHTML = "éditer";
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+        conteneurModale.appendChild(figure);
+
+    })
+}
