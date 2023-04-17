@@ -313,12 +313,12 @@ footer nav ul {
 }
 
 .modale {
-	/* margin: 500px 1500px; */
-	border: none;
+	margin: 0 auto;
+	border: none; /*rajoute dans le cas ou la modale rentre dans l'overlay*/
 	width: 630px;
 	height: 780px;
 	background-color: white;
-	z-index: 2;
+	z-index: 3;
 	border-radius: 10px;
 
 }
@@ -331,8 +331,8 @@ footer nav ul {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	display: grid;
 	height: 480px;
-	margin: 0 60px; 						/*ATTENTION MARGINS AJOUTES*/  
-	border: 1px solid red;
+	padding: 0 70px;					/* ATTENTION PADDING AJOUTE*/ 
+	/* margin: 0 60px; 						ATTENTION MARGINS AJOUTES   */
 	grid-column-gap: 25px;
 	grid-row-gap: 5px;
 

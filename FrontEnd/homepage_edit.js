@@ -72,8 +72,9 @@ function afficheFiltres() {
     )
 }
 
-// Creation de la fonctionalite d'ouverture et de fermeture de la modale
 
+
+// Creation de la fonctionalite d'ouverture et de fermeture de la modale
 
 // Selection des valeurs dans des variables des differents boutons: 
 let modale = document.querySelector(".modale");
@@ -103,21 +104,27 @@ function fermeModale() {
     modale.classList.add("hidden");
     overlay.classList.add("hidden");
 }
+
+
 // Creation de l'eventListener qui permet la fermeture de la modale en cliquant en dehors de celle ci
-overlay.addEventListener('click', (e) => {
-    e.preventDefault();
-    fermeModale();
-})
+
+overlay.addEventListener("click", windowOnClick);
+
+// Creation de la fonction qui permet la fermeture de la modale en cliquant en dehors de celle ci
+
+function windowOnClick(event) {
+    if (event.target === overlay) {
+        fermeModale();
+    }
+}
 
 //affichage des projets a l'interieur de la modale 
-
 function afficheTravauxModale() {
 
     let conteneurModale = document.querySelector(".galerie-modale");
     conteneurModale.innerHTML = "";
 
     let travauxModale = works;
-
     travauxModale.forEach(function (work) {
         const figure = document.createElement("figure");
         figure.id = "figure-modale";
