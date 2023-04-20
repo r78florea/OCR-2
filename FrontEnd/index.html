@@ -10,10 +10,24 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
 		rel="stylesheet">
+		<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
+
+	<div class="publication connexion">
+		<a href="#" id="link-btn-modifier">
+			<span id="icon-publication" class="material-symbols-outlined">
+				edit_square <p class="icone">Mode édition</p>
+			</span>
+		</a>
+		<button id="btn-publier" type="button">
+			publier les changements
+		</button>
+	</div>
+
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
@@ -29,8 +43,18 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<a href="#" class="link-btn-modifier connexion">
+					<span id="img-icon" class="material-symbols-outlined">
+						edit_square <p class="icone">modifier</p>
+					</span>
+				</a> 
 			</figure>
 			<article>
+				<a href="#" class="link-btn-modifier connexion">
+					<span id="intro-icon" class="material-symbols-outlined">
+						edit_square <p class="icone">modifier</p>
+					</span>
+				</a>
 				<h2>Designer d'espace</h2>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
 					finale du chantier.</p>
@@ -42,7 +66,35 @@
 			</article>
 		</section>
 		<section id="portfolio">
-			<h2>Mes Projets</h2>
+			<h2 id="mesprojets">Mes Projets
+				<div class="overlay hidden">
+					<div class="modale hidden">
+						<div id="divBtnClose">
+							<button class="btn-close">⨉</button>
+						</div>
+						<h2 id="titre-modale">Galerie photo</h2>
+							<div class="galerie-modale">
+	
+							</div>
+						<hr id="divider">
+							<div id="divBtnGalerie">
+								<button href="#" id="btnAjouterPhoto">
+									Ajouter une photo
+								</button>
+								<button href="#"id="supprimerGalerie">
+									Supprimer la galerie
+								</button>
+							</div> 
+						</div> 
+				</div>
+
+				<button href="#" class="link-btn-modifier btn btn-modifier connexion" id="btn-modale">
+					<span class="material-symbols-outlined">
+						edit_square <p class="icone">modifier</p>
+					</span>
+				</button>
+
+			</h2>
 			
 			<div class="filtres">
 				<!-- <button id="btn-tous" class="btn-filtres">

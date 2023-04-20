@@ -288,7 +288,8 @@ input {
 
 /* Ici commence le code CSS pour la page home_edit1 */
 
-/* .publication {
+
+ .publication {
 	color: white;
 	height: 60px;
 	display: flex;
@@ -299,6 +300,11 @@ input {
 	background-color: black;
 	gap: 20px;
 }
+
+.non-connecte {
+	display: none;
+}
+
 
 .publication .material-symbols-outlined p {
 	color: #ffffff;
@@ -320,7 +326,7 @@ input {
 	text-decoration: none;
 }
 
- p.icone {
+p.icone {
 	margin: 0;
 	font-family: 'Work Sans', sans-serif;
 	font-size: 14px;
@@ -338,11 +344,11 @@ input {
 	margin: 15px 0 0 55px;
 }
 
-#intro-icon{
+#intro-icon {
 	margin-bottom: 15px;
 }
 
-#link-btn-modifier {
+.link-btn-modifier {
 	text-decoration: none;
 }
 
@@ -358,11 +364,149 @@ input {
 	border-radius: 60px;
 	background-color: white;
 	color: black;
-} */
-
-/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
+}
 
 
-/* Ici s'arrete le code CSS pour la page home_edit1 */
+/* CREATION DE LA MODALE */
+#btn-modale {
+	cursor: pointer;
+	border: none;
+	background-color: white;
+}
 
+.modale {
+	margin: 0 auto;
+	border: none;
+	width: 630px;
+	height: 730px;
+	background-color: white;
+	z-index: 2;
+	border-radius: 10px;
 
+}
+
+.hidden {
+	display: none;
+}
+
+.galerie-modale {
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	display: grid;
+	height: 400px;
+	/* padding: 0  70px; */
+	/* ATTENTION PADDING AJOUTE*/
+	margin: 0 105px;
+	grid-column-gap: 7px;
+	/* grid-row-gap: 5px; */
+
+}
+
+#btnAjouterPhoto {
+	cursor: pointer;
+	display: block;
+	border: none;
+	border-radius: 60px;
+	width: 237px;
+	height: 37px;
+	font-size: 14px;
+	color: white;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #1D6154;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	/* backdrop-filter: blur(3px); */
+	z-index: 1;
+}
+
+#titre-modale {
+	font-size: 25px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	color: black;
+}
+
+#divBtnClose {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.btn-close {
+	cursor: pointer;
+	margin: 30px 35px 0 0;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+#divider {
+	width: 420px;
+	margin-top: 30px;
+}
+
+#divBtnGalerie {
+	margin-top: 40px;
+	/* ATTENTION MARGINS AJOUTES*/
+	gap: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#supprimerGalerie {
+	display: block;
+	border: none;
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #D65353;
+	cursor: pointer;
+}
+
+#img-modale {
+	height: 105px;
+}
+
+#figCaption-modale {
+	font-size: 12px;
+	font-family: 'Work Sans', sans-serif;
+	color: black;
+	font-weight: 400;
+	margin-top: 3px;
+}
+
+#figure-modale {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-end; */
+	align-items: flex-start;
+	height: 105px;
+}
+
+#btnPoubelle {
+	cursor: pointer;
+	position: relative;
+	top: 25px;
+	left: 55px;
+	font-size: 18px;
+	background-color: black;
+	color: white;
+	border-radius: 2px;
+	z-index: 2;
+
+}
+
+/* FIN CREATION DE LA MODALE */
+
+/* ICI S'ARRETE LE CODE CSS POUR HOMEPAGE_EDIT1 */
