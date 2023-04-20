@@ -74,7 +74,10 @@ function afficheFiltres() {
 
 
 
-// Creation de la fonctionalite d'ouverture et de fermeture de la modale
+                        // Creation de la fonctionalite d'ouverture et de fermeture de la modale
+
+
+
 
 // Selection des valeurs dans des variables des differents boutons: 
 let modale = document.querySelector(".modale");
@@ -132,8 +135,13 @@ function afficheTravauxModale() {
         img.id = "img-modale";
         const figCaption = document.createElement("figcaption");
         figCaption.id = "figCaption-modale";
+        const btnSuppProjet = document.createElement("span")
+        btnSuppProjet.innerHTML = "delete"
+        btnSuppProjet.classList.add("material-symbols-outlined")
+        btnSuppProjet.id = "btnPoubelle";
         img.src = work.imageUrl;
         figCaption.innerHTML = "éditer";
+        figure.appendChild(btnSuppProjet);
         figure.appendChild(img);
         figure.appendChild(figCaption);
         conteneurModale.appendChild(figure);
