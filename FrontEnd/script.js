@@ -125,6 +125,7 @@ btnFermeModale.addEventListener("click", (e) => {
 function fermeModale() {
     modale.classList.add("hidden");
     overlay.classList.add("hidden");
+    modaleAjout.classList.add("modif");
 }
 
 
@@ -166,4 +167,21 @@ function afficheTravauxModale() {
         conteneurModale.appendChild(figure);
 
     })
+}
+
+                //Modale ajout de photos
+
+// Stockage des variables                
+const modaleAjout = document.querySelector(".modale-ajout");
+const btnAjouter = document.querySelector("#btnAjouterPhoto");
+
+// Declaration de l'eventListener
+btnAjouter.addEventListener('click', (e)=> {
+    e.preventDefault();
+    modaleAjoutAffiche();
+});
+
+//Creation de la fonction d'ouverture et de fermeture de la modale d'ajout
+function modaleAjoutAffiche() {
+    modaleAjout.classList.remove("modif");
 }
