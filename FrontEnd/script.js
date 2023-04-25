@@ -185,3 +185,15 @@ btnAjouter.addEventListener('click', (e)=> {
 function modaleAjoutAffiche() {
     modaleAjout.classList.remove("modif");
 }
+
+
+
+
+// Creation de la fonctionalite d'ajout d'images.
+
+//declaration des variables
+let btnCharger
+let choixTitre
+let choixCategorie
+let btnValider
+//
