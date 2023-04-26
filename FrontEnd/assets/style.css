@@ -554,7 +554,8 @@ p.icone {
 	justify-content: center;
 	align-items: center;
 }
-.zone-ajout-fichier p {
+/* .zone-ajout-fichier */
+#conteneur-modale-ajout p {
 	font-family: 'Work Sans';
 	font-size: 10px;
 	color: #444444;
@@ -570,7 +571,7 @@ p.icone {
 
 }
 
-#categorie {
+#categories {
 	width: 420px;
 	height: 51px;
 	background: #FFFFFF;
@@ -655,4 +656,6 @@ color: #B9C5CC;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+
 }

@@ -189,11 +189,53 @@ function modaleAjoutAffiche() {
 
 
 
-// Creation de la fonctionalite d'ajout d'images.
+        // Creation de la fonctionalite d'ajout d'images.
+
+
 
 //declaration des variables
-let btnCharger
-let choixTitre
-let choixCategorie
-let btnValider
+const documentCharge = document.getElementById('btn-ajout-fichier').files[0];
+const choixTitre = document.getElementById('titre').value;
+const choixCategorie = document.getElementById('categories').value;
+const btnValider = document.getElementById('btn-valider');
+const bearer = sessionStorage.getItem("bearer");
 //
+
+//fonctionalite qui permet l'affichage du fichier telecharge
+
+//
+
+// Creation de la fonction chargerFichier
+
+let formData = new FormData();
+formData.append('image', documentCharge.value,);
+formData.append('title', choixTitre.value);
+formData.append('category', choixCategorie.value);
+
+
+  function chargerFichier() {
+
+    //creation du formData
+
+
+    //Appel a l'api via fetch
+
+      const postWorks= fetch('http://localhost:5678/api/works', {
+        method: "POST",
+        headers:{
+            "Authorization": 'Bearer ${bearer}'
+        },
+        body: formData,
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    console.log(postWorks);
+    
+}
+
+//eventlistener sur le bouton valider et appel de la fonction
+
+btnValider.addEventListener('click', (e)=> {
+    e.preventDefault();
+    chargerFichier();
+})

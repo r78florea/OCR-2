@@ -105,30 +105,52 @@
 
 
 						<div id="conteneur-modale-ajout">
-							
-							<div class="zone-ajout-fichier">
+
+							<!-- <div class="zone-ajout-fichier">
 								<span class="material-symbols-outlined" id="icone-ajout-image">
 									imagesmode
-								</span>
-								<form id="form-ajout-fichier">
+								</span>-->
+			
+							<form id="form-ajout-fichier">
 
-									<label for="btn-ajout-fichier" id="btn-ajout-fichier-visible">+Ajouter photo</label>
-									<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"
-										accept=".jpg, .png"></input>
-									<p>jpg, png : 4mo max</p>
-								</form>
-							</div>
+								<label for="btn-ajout-fichier">+Ajouter photo</label>
+								<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"></input>
+								<p>jpg, png : 4mo max</p>
 
-							<form id="form-ajout-nomenclature">
 								<label for="titre" class="titre-form">Titre</label>
-								<input type="text" id="titre" name="titre"></input>
+								<input type="text" id="titre" name="titre" required></input>
 
-								<label for="categorie" class="titre-form">Catégorie</label>
-								<select name="categorie" id="categorie">
-									<option value="objets">Objets</option>
-									<option value="Appartements">Appartements</option>
-									<option value="Hôtels&Restaurants">Hôtels & Restaurants</option>
+								<label for="categoriess" class="titre-form">Catégorie</label>
+								<select name="categories" id="categories" required>
+									<option value="1">Objets</option>
+									<option value="2">Appartements</option>
+									<option value="3">Bar & Restaurants</option>
 								</select>
+
+								<button type="submit" id="btn-valider" form="form-ajout-fichier">
+									Valider
+								</button>
+							</form>
+
+
+
+						</div>
+
+						<hr class="divider ajout">
+
+						<!-- </div>  
+						</div> -->
+
+						<!-- <form id="form-ajout-nomenclature"> -->
+						<!-- <label for="titre" class="titre-form">Titre</label>
+							<input type="text" id="titre" name="titre"></input>
+
+							<label for="categorie" class="titre-form">Catégorie</label>
+							<select name="categorie" id="categorie">
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+								<option value="3">Hôtels & Restaurants</option>
+							</select>
 							</form>
 						</div>
 
@@ -136,7 +158,7 @@
 
 						<button type="submit" id="btn-valider">
 							Valider
-						</button>
+						</button> -->
 					</div>
 				</div>
 
