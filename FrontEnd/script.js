@@ -204,8 +204,8 @@ function modaleAjoutAffiche() {
 
 let selectInput = document.querySelector("select")
 categories.forEach(function (categorie) {
-    const optionChoice = document.createElement('option')
-    optionChoice.innerHTML = categorie.name;
+    let optionChoice = document.createElement('option')
+    optionChoice.innerHTML = categorie.id;
     selectInput.appendChild(optionChoice);
 })
 
@@ -217,15 +217,15 @@ categories.forEach(function (categorie) {
   function chargerFichier() {
 
     //declaration des variables
-    const documentCharge = document.getElementById('btn-ajout-fichier').files[0];
-    const choixTitre = document.getElementById('titre').value;
-    const choixCategorie = document.getElementById('categories').value;
+    const documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
+    const choixTitre = document.querySelector('#titre').value;
+    const choixCategorie = document.querySelector('#categories').value;
     const bearer = sessionStorage.getItem("bearer");
 
     let formData = new FormData();
-    formData.append('image', documentCharge.value,);
-    formData.append('title', choixTitre.value);
-    formData.append('category', choixCategorie.value);
+    formData.append('image', documentCharge);
+    formData.append('title', choixTitre);
+    formData.append('category', choixCategorie);
 
     //creation du formData
 
@@ -235,7 +235,9 @@ categories.forEach(function (categorie) {
         fetch('http://localhost:5678/api/works', {
         method: "POST",
         headers:{
-            "Authorization": `Bearer ${bearer}`
+            'accept': 'application/json',
+            "Authorization": `Bearer ${bearer}`,
+
         },
         body: formData,
     })
