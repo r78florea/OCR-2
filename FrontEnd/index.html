@@ -69,16 +69,16 @@
 			<h2 id="mesprojets">Mes Projets
 				<div class="overlay hidden">
 
-					<div class="modale hidden">
-						<div id="divBtnClose">
-							<button class="btn-close">⨉</button>
+					<div class="modale-premiere hidden">
+						<div id="div-btn-fermeture">
+							<button class="btn-fermeture">⨉</button>
 						</div>
 						<h2 class="titre-modale">Galerie photo</h2>
 						<div class="galerie-modale">
 
 						</div>
 						<hr class="divider">
-						<div id="divBtnGalerie">
+						<div id="div-btn-ajouterPhoto">
 							<button href="#" id="btnAjouterPhoto">
 								Ajouter une photo
 							</button>
@@ -94,45 +94,48 @@
 								←
 							</button>
 
-							<button class="btn-close">⨉</button>
+							<button class="btn-fermeture">⨉</button>
 
 
 						</div>
+
 						<h2 class="titre-modale">
 							Ajout photo
 						</h2>
-						<div>
-							<div class="fenetre-ajout">
-								<span class="material-symbols-outlined" id="icone-ajout">
+
+
+						<div id="conteneur-modale-ajout">
+
+							<div class="zone-ajout-fichier">
+								<span class="material-symbols-outlined" id="icone-ajout-image">
 									imagesmode
 								</span>
-								<form>
-									<label for="btn-ajoutPhoto" id="btn-ajoutPhoto-vrai">+Ajouter photo</label>
-									<input type="file" id="btn-ajoutPhoto" name="btn-ajoutPhoto"></input>
+								<form id="form-ajout-fichier">
+
+									<label for="btn-ajout-fichier" id="btn-ajout-fichier-visible">+Ajouter photo</label>
+									<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"
+										accept=".jpg, .png"></input>
+									<p>jpg, png : 4mo max</p>
 								</form>
-								<p>jpg, png : 4mo max</p>
 							</div>
 
-							<form class="titre-form">
-								<label for="titre">Titre</label>
-								<input type="tex" id="titre" name="titre"></input>
-							</form>
+							<form id="form-ajout-nomenclature">
+								<label for="titre" class="titre-form">Titre</label>
+								<input type="text" id="titre" name="titre"></input>
 
-							<form class="titre-form">
-								<label for="categorie">Catégorie</label>
+								<label for="categorie" class="titre-form">Catégorie</label>
 								<select name="categorie" id="categorie">
-									<option value=""></option>
 									<option value="objets">Objets</option>
 									<option value="Appartements">Appartements</option>
 									<option value="Hôtels&Restaurants">Hôtels & Restaurants</option>
 								</select>
 							</form>
-
+							
 						</div>
 
 						<hr class="divider ajout">
 
-						<button id="btn-valider">
+						<button type="submit" id="btn-valider">
 							Valider
 						</button>
 					</div>

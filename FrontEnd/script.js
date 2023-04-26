@@ -99,10 +99,10 @@ function afficheFiltres() {
 
 
 // Selection des valeurs dans des variables des differents boutons: 
-let modale = document.querySelector(".modale");
+let modale = document.querySelector(".modale-premiere");
 let overlay = document.querySelector(".overlay");
 let btnLanceModale = document.querySelector("#btn-modale");
-let btnFermeModale = document.querySelector(".btn-close");
+let btnFermeModale = document.querySelector(".btn-fermeture");
 
 // ajout de l'eventlistner sur le bouton de lancement
 btnLanceModale.addEventListener("click", (e) => {
