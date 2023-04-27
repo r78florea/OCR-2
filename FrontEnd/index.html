@@ -67,9 +67,9 @@
 		</section>
 		<section id="portfolio">
 			<h2 id="mesprojets">Mes Projets
-				<div class="overlay hidden">
+				<div class="overlay">
 
-					<div class="modale-premiere hidden">
+					<div class="modale-premiere">
 						<div id="div-btn-fermeture">
 							<button class="btn-fermeture">⨉</button>
 						</div>
@@ -86,76 +86,57 @@
 								Supprimer la galerie
 							</button>
 						</div>
-					</div>
 
-					<div class="modale-ajout connexion modif">
-						<div class="btn-modale-ajout">
-							<button class="btn-retour">
-								←
-							</button>
+						<div class="modale-ajout">
+							<div class="btn-modale-ajout">
+								<button class="btn-retour">
+									←
+								</button>
 
-							<button class="btn-fermeture">⨉</button>
-
-
-						</div>
-
-						<h2 class="titre-modale">
-							Ajout photo
-						</h2>
+								<button class="btn-fermeture">⨉</button>
 
 
-						<div id="conteneur-modale-ajout">
+							</div>
 
-							<!-- <div class="zone-ajout-fichier">
+							<h2 class="titre-modale">
+								Ajout photo
+							</h2>
+
+
+							<div id="conteneur-modale-ajout">
+
+								<!-- <div class="zone-ajout-fichier">
 								<span class="material-symbols-outlined" id="icone-ajout-image">
 									imagesmode
 								</span>-->
-			
-							<form id="form-ajout-fichier">
 
-								<label for="btn-ajout-fichier">+Ajouter photo</label>
-								<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"></input>
-								<p>jpg, png : 4mo max</p>
+								<form id="form-ajout-fichier">
 
-								<label for="titre" class="titre-form">Titre</label>
-								<input type="text" id="titre" name="titre" required></input>
+									<div class="zone-ajout-fichier">
+										<img src="./assets/images/picture-svgrepo-com 1.png" alt="">
+										<label class="pointer" for="btn-ajout-fichier">+Ajouter photo</label>
+										<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"></input>
+										<p>jpg, png : 4mo max</p>
+									</div>
+									<label for="titre" class="titre-form">Titre</label>
+									<input type="text" id="titre" name="titre" required></input>
 
-								<label for="categoriess" class="titre-form">Catégorie</label>
-								<select name="categories" id="categories" required></select>
+									<label for="categoriess" class="titre-form">Catégorie</label>
+									<select name="categories" id="categories" required></select>
 
-								<button type="submit" id="btn-valider" form="form-ajout-fichier">
-									Valider
-								</button>
-							</form>
+									<hr class="divider ajout">
 
 
+									<button type="submit" id="btn-valider" form="form-ajout-fichier">
+										Valider
+									</button>
+								</form>
+
+							</div>
 
 						</div>
-
-						<hr class="divider ajout">
-
-						<!-- </div>  
-						</div> -->
-
-						<!-- <form id="form-ajout-nomenclature"> -->
-						<!-- <label for="titre" class="titre-form">Titre</label>
-							<input type="text" id="titre" name="titre"></input>
-
-							<label for="categorie" class="titre-form">Catégorie</label>
-							<select name="categorie" id="categorie">
-								<option value="1">Objets</option>
-								<option value="2">Appartements</option>
-								<option value="3">Hôtels & Restaurants</option>
-							</select>
-							</form>
-						</div>
-
-						<hr class="divider ajout">
-
-						<button type="submit" id="btn-valider">
-							Valider
-						</button> -->
 					</div>
+
 				</div>
 
 				<button href="#" class="link-btn-modifier btn btn-modifier connexion" id="btn-modale">

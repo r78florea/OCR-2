@@ -112,10 +112,10 @@ btnLanceModale.addEventListener("click", (e) => {
 
 // Creation de la fonction qui permet le lancement de la modale
 function ouvreModale() {
-    modale.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    overlay.classList.add("flex");
     afficheTravauxModale();
 }
+
 // Creation de l'eventListener sur le bouton de fermeture
 btnFermeModale.addEventListener("click", (e) => {
     e.preventDefault();
@@ -123,9 +123,8 @@ btnFermeModale.addEventListener("click", (e) => {
 })
 // Creation fermeture de la modale
 function fermeModale() {
-    modale.classList.add("hidden");
-    overlay.classList.add("hidden");
-    modaleAjout.classList.add("modif");
+    overlay.classList.remove("flex");
+    //modaleAjout.classList.add("modif");
 }
 
 
@@ -174,6 +173,7 @@ function afficheTravauxModale() {
 // Stockage des variables                
 const modaleAjout = document.querySelector(".modale-ajout");
 const btnAjouter = document.querySelector("#btnAjouterPhoto");
+const btnRetour = document.querySelector(".btn-retour");
 
 // Declaration de l'eventListener
 btnAjouter.addEventListener('click', (e)=> {
@@ -181,12 +181,19 @@ btnAjouter.addEventListener('click', (e)=> {
     modaleAjoutAffiche();
 });
 
+btnRetour.addEventListener('click', (e)=> {
+    e.preventDefault();
+    modaleAjoutFerme();
+});
+
 //Creation de la fonction d'ouverture et de fermeture de la modale d'ajout
 function modaleAjoutAffiche() {
-    modaleAjout.classList.remove("modif");
+    modaleAjout.classList.add("flex");
 }
 
-
+function modaleAjoutFerme() {
+    modaleAjout.classList.remove("flex");
+}
 
 
         // Creation de la fonctionalite d'ajout d'images.
@@ -205,8 +212,10 @@ function modaleAjoutAffiche() {
 let selectInput = document.querySelector("select")
 categories.forEach(function (categorie) {
     let optionChoice = document.createElement('option')
-    optionChoice.innerHTML = categorie.id;
+    optionChoice.innerHTML = categorie.name;
+    optionChoice.value = categorie.id;
     selectInput.appendChild(optionChoice);
+
 })
 
 // Creation de la fonction chargerFichier
@@ -242,7 +251,10 @@ categories.forEach(function (categorie) {
         body: formData,
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        console.log(data);
+        // ajouter vignettes sur la page principale et sur la modale n1
+    })
     
 }
 

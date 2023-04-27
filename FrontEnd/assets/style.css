@@ -375,6 +375,7 @@ p.icone {
 }
 
 .modale-premiere {
+	position: relative;
 	margin: 0 auto;
 	border: none;
 	width: 630px;
@@ -425,7 +426,12 @@ p.icone {
 	background: rgba(0, 0, 0, 0.5);
 	/* backdrop-filter: blur(3px); */
 	z-index: 1;
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
+
+
 
 .titre-modale {
 	font-size: 25px;
@@ -477,6 +483,7 @@ p.icone {
 
 #img-modale {
 	height: 105px;
+	width: 80px;
 }
 
 #figCaption-modale {
@@ -516,6 +523,11 @@ p.icone {
 
 
 .modale-ajout {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+
 	margin: 0 auto;
 	border: none;
 	width: 630px;
@@ -523,7 +535,7 @@ p.icone {
 	background-color: white;
 	z-index: 2;
 	border-radius: 10px;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	padding: 0 0 20px 0;
@@ -619,6 +631,7 @@ input {
 [value] {
 	font-size: 40px;
 }
+
 .modif {
 	display: none;
 }
@@ -658,4 +671,12 @@ color: #B9C5CC;
 	justify-content: center;
 	align-items: center;
 
+}
+
+.flex {
+	display: flex;
+}
+
+.pointer { 
+	cursor: pointer;
 }
