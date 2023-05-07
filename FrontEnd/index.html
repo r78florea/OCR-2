@@ -89,10 +89,7 @@
 
 						<div class="modale-ajout">
 							<div class="btn-modale-ajout">
-								<button class="btn-retour">
-									←
-								</button>
-
+								<button class="btn-retour"><img src ="./assets/images/back-svgrepo-com 1.png"></img></button>
 								<button class="btn-fermeture">⨉</button>
 
 
@@ -114,8 +111,9 @@
 
 									<div class="zone-ajout-fichier">
 										<img src="./assets/images/picture-svgrepo-com 1.png" alt="">
-										<label class="pointer" for="btn-ajout-fichier">+Ajouter photo</label>
-										<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier"></input>
+										<label class="pointer" for="btn-ajout-fichier" id="btn-ajout-fichier-visible">+Ajouter photo</label>
+										<input type="file" id="btn-ajout-fichier" name="btn-ajout-fichier" accept="image/jpg, image/png"></input>
+										<img id="file-preview" class="hidden">
 										<p>jpg, png : 4mo max</p>
 									</div>
 									<label for="titre" class="titre-form">Titre</label>

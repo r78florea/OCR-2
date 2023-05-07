@@ -15,7 +15,7 @@ const estConnecte = (sessionStorage.getItem("bearer") != null)
 
 if (!estConnecte) {
     document.querySelectorAll('.connexion').forEach(function (element) {
-         element.classList.add('non-connecte')
+        element.classList.add('non-connecte')
     })
     afficheFiltres();
 }
@@ -32,12 +32,12 @@ document.querySelector("#btn-publier").addEventListener('click', function () {
 
 
 function afficheTravaux(categorie) {
-    
+
     const sectionGallery = document.querySelector(".gallery");
-    
+
     // Remise à zéro de la section gallery
     sectionGallery.innerHTML = "";
-    
+
     // Filtrage des travaux
     let travauxFiltres = works;
     if (categorie != 0) {
@@ -47,7 +47,7 @@ function afficheTravaux(categorie) {
     }
 
     // Affichage des travaux
-    travauxFiltres.forEach(function (work) {    
+    travauxFiltres.forEach(function (work) {
         const figure = document.createElement("figure")
         const img = document.createElement("img");
         const figCaption = document.createElement("figcaption");
@@ -57,14 +57,14 @@ function afficheTravaux(categorie) {
         figure.appendChild(figCaption);
         sectionGallery.appendChild(figure);
     })
-      
+
 }
 
 // Creation des filtres
 function afficheFiltres() {
-    
+
     const sectionFiltres = document.querySelector(".filtres")
-    
+
     // Création du bouton Tous
     const button = document.createElement("button");
     button.id = "btn-0";
@@ -74,7 +74,7 @@ function afficheFiltres() {
         afficheTravaux(0)
     });
     sectionFiltres.appendChild(button)
-    
+
     // Création des autres boutons
     categories.forEach(function (categorie) {
         const button = document.createElement("button");
@@ -93,7 +93,7 @@ function afficheFiltres() {
 
 
 
-                        // Creation de la fonctionalite d'ouverture et de fermeture de la modale
+// Creation de la fonctionalite d'ouverture et de fermeture de la modale
 
 
 
@@ -124,7 +124,6 @@ btnFermeModale.addEventListener("click", (e) => {
 // Creation fermeture de la modale
 function fermeModale() {
     overlay.classList.remove("flex");
-    //modaleAjout.classList.add("modif");
 }
 
 
@@ -137,6 +136,7 @@ overlay.addEventListener("click", windowOnClick);
 function windowOnClick(event) {
     if (event.target === overlay) {
         fermeModale();
+        modaleAjoutFerme();
     }
 }
 
@@ -154,10 +154,12 @@ function afficheTravauxModale() {
         img.id = "img-modale";
         const figCaption = document.createElement("figcaption");
         figCaption.id = "figCaption-modale";
-        const btnSuppProjet = document.createElement("span")
-        btnSuppProjet.innerHTML = "delete"
-        btnSuppProjet.classList.add("material-symbols-outlined")
-        btnSuppProjet.id = "btnPoubelle";
+        let btnSuppProjet = document.createElement("button");
+        btnSuppProjet = document.createElement('img');
+        btnSuppProjet.classList.add("btnPoubelle");
+        btnSuppProjet.setAttribute('type', 'submit')
+        btnSuppProjet.id = work.id;
+        btnSuppProjet.src = './assets/images/Group 10.png';
         img.src = work.imageUrl;
         figCaption.innerHTML = "éditer";
         figure.appendChild(btnSuppProjet);
@@ -168,7 +170,56 @@ function afficheTravauxModale() {
     })
 }
 
-                //Modale ajout de photos
+
+
+
+
+//Supression des travaux
+
+
+  
+// window.addEventListener('DOMContentLoaded', (e)=> {
+//     e.preventDefault();
+
+    let btnSupprimer = document.querySelector('.btnPoubelle');
+
+    if(btnSupprimer){
+
+        btnSupprimer.addEventListener('click', (e)=> {
+            e.preventDefault();
+            console.log('Coucou les loulous')
+        })
+
+    }      
+
+// // })
+
+function suppressionTravaux () {
+    let id = btnSuppProjet.id;
+    const bearer = sessionStorage.getItem("bearer");
+
+     fetch(`http://localhost:5678/api/works/${id}`, {
+        method: "DELETE",
+        headers: {
+            'accept': 'accept */*',
+            "Authorization": `Bearer ${bearer}`,
+        body: JSON,
+        contenttype: 'application/json',
+        }
+        
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    })
+
+}
+
+
+
+
+
+//Modale ajout de photos
 
 // Stockage des variables                
 const modaleAjout = document.querySelector(".modale-ajout");
@@ -176,12 +227,12 @@ const btnAjouter = document.querySelector("#btnAjouterPhoto");
 const btnRetour = document.querySelector(".btn-retour");
 
 // Declaration de l'eventListener
-btnAjouter.addEventListener('click', (e)=> {
+btnAjouter.addEventListener('click', (e) => {
     e.preventDefault();
     modaleAjoutAffiche();
 });
 
-btnRetour.addEventListener('click', (e)=> {
+btnRetour.addEventListener('click', (e) => {
     e.preventDefault();
     modaleAjoutFerme();
 });
@@ -196,16 +247,8 @@ function modaleAjoutFerme() {
 }
 
 
-        // Creation de la fonctionalite d'ajout d'images.
+// Creation de la fonctionalite d'ajout d'images.
 
-
-
-
-//
-
-//fonctionalite qui permet l'affichage du fichier telecharge
-
-//
 
 //creation des options select
 
@@ -223,7 +266,7 @@ categories.forEach(function (categorie) {
 
 
 
-  function chargerFichier() {
+function chargerFichier() {
 
     //declaration des variables
     const documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
@@ -236,31 +279,52 @@ categories.forEach(function (categorie) {
     formData.append('title', choixTitre);
     formData.append('category', choixCategorie);
 
-    //creation du formData
 
 
     //Appel a l'api via fetch
 
-        fetch('http://localhost:5678/api/works', {
+    fetch('http://localhost:5678/api/works', {
         method: "POST",
-        headers:{
+        headers: {
             'accept': 'application/json',
             "Authorization": `Bearer ${bearer}`,
 
         },
         body: formData,
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        // ajouter vignettes sur la page principale et sur la modale n1
-    })
-    
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // ajouter vignettes sur la page principale et sur la modale n1
+        })
+
 }
 
 //eventlistener sur le bouton valider et appel de la fonction
 const btnValider = document.getElementById('btn-valider');
-btnValider.addEventListener('click', (e)=> {
+btnValider.addEventListener('click', (e) => {
     e.preventDefault();
     chargerFichier();
 })
+
+// Fonctionnalite d'affichage du fichier telecharge 
+let documentCharge = document.querySelector('#btn-ajout-fichier');
+
+const previewImage = () => {
+    const file = documentCharge.files;
+    let preview = document.getElementById('file-preview');
+    if (file) {
+        const fileReader = new FileReader();
+        fileReader.onload = event => {
+            preview.setAttribute('src', event.target.result);
+        }
+        fileReader.readAsDataURL(file[0]);
+    }
+    preview.classList.remove('hidden');
+
+};
+
+documentCharge.addEventListener("change", previewImage);
+
+
+
