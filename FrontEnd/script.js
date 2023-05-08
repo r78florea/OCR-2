@@ -48,7 +48,8 @@ function afficheTravaux(categorie) {
 
     // Affichage des travaux
     travauxFiltres.forEach(function (work) {
-        const figure = document.createElement("figure")
+        const figure = document.createElement("figure");
+        figure.id = 'figure' + works.id;
         const img = document.createElement("img");
         const figCaption = document.createElement("figcaption");
         img.src = work.imageUrl;
@@ -148,24 +149,30 @@ function afficheTravauxModale() {
 
     let travauxModale = works;
     travauxModale.forEach(function (work) {
-        const figure = document.createElement("figure");
-        figure.id = "figure-modale";
-        const img = document.createElement("img");
+        let figure = document.createElement("figure");
+        figure.id = 'figure-modale' + work.id;
+        figure.classList.add('figure-modale')
+        let img = document.createElement("img");
         img.id = "img-modale";
         const figCaption = document.createElement("figcaption");
         figCaption.id = "figCaption-modale";
         let btnSuppProjet = document.createElement("button");
         btnSuppProjet = document.createElement('img');
         btnSuppProjet.classList.add("btnPoubelle");
-        btnSuppProjet.setAttribute('type', 'submit')
         btnSuppProjet.id = work.id;
         btnSuppProjet.src = './assets/images/Group 10.png';
+        btnSuppProjet.addEventListener('click', (e) => {
+            e.preventDefault();
+            suppressionTravaux(work.id);
+        })
         img.src = work.imageUrl;
         figCaption.innerHTML = "éditer";
         figure.appendChild(btnSuppProjet);
         figure.appendChild(img);
         figure.appendChild(figCaption);
         conteneurModale.appendChild(figure);
+
+
 
     })
 }
@@ -177,42 +184,38 @@ function afficheTravauxModale() {
 //Supression des travaux
 
 
-  
-// window.addEventListener('DOMContentLoaded', (e)=> {
-//     e.preventDefault();
-
-    let btnSupprimer = document.querySelector('.btnPoubelle');
-
-    if(btnSupprimer){
-
-        btnSupprimer.addEventListener('click', (e)=> {
-            e.preventDefault();
-            console.log('Coucou les loulous')
-        })
-
-    }      
-
-// // })
-
-function suppressionTravaux () {
-    let id = btnSuppProjet.id;
+function suppressionTravaux(id) {
+    // let id = btnSuppProjet.id;
+    console.log('suppression du projet ' + id)
     const bearer = sessionStorage.getItem("bearer");
 
-     fetch(`http://localhost:5678/api/works/${id}`, {
+    fetch(`http://localhost:5678/api/works/${id}`, {
         method: "DELETE",
         headers: {
-            'accept': 'accept */*',
             "Authorization": `Bearer ${bearer}`,
-        body: JSON,
-        contenttype: 'application/json',
+            // body: JSON,
+            'content-type': 'application/json',
         }
-        
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
     })
+    //     .then(response => {
+    //         console.log(response.status);
+    // })
 
+        // .then(response => response.json())
+        .then(response => {
+            
+            // preventDefault();
+
+            const figureSiteDelete = document.getElementById('figure' + works.id);
+
+            if(response.status === 204 && (figureSiteDelete)) {
+                figureSiteDelete.remove(figureSiteDelete);
+            } else (
+                alert('la vignette n\'a pu etre effaccee')
+            )
+        })        
+
+   
 }
 
 
@@ -297,6 +300,24 @@ function chargerFichier() {
             console.log(data);
             // ajouter vignettes sur la page principale et sur la modale n1
         })
+        // .then(response => {
+        //     if(response.ok) {
+
+        //         response.preventDefault();
+
+        //             let figure = document.createElement("figure");
+        //             figure.id = 'figure' + works.id;
+        //             let img = document.createElement("img");
+        //             let figCaption = document.createElement("figcaption");
+        //             img.src = works.imageUrl;
+        //             figCaption.innerHTML = works.title;
+        //             figure.appendChild(img);
+        //             figure.appendChild(figCaption);
+        //             sectionGallery.appendChild(figure);
+        //     }
+        // })
+           
+           
 
 }
 
