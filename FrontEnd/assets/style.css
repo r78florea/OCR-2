@@ -480,8 +480,9 @@ p.icone {
 
 #img-modale {
 	object-fit: cover;
-	min-height: 105px;
-	width: 80px;
+	/* min-height: 100px; */
+	height: 100px;
+ 	width: 80px;
 }
 
 #figCaption-modale {
@@ -497,13 +498,13 @@ p.icone {
 	flex-direction: column;
 	/* justify-content: flex-end; */
 	align-items: flex-start;
-	height: 105px;
+	height: 100px;
 }
 
 .btnPoubelle {
 	position: relative;
-	top: 25px;
-	left: 38px;
+	top: 29px;
+	left: 18px;
 	z-index: 2;
 	cursor: pointer;
 	/* background-image: url('./assets/images/Group 10.png'); */
@@ -689,8 +690,12 @@ color: #B9C5CC;
 
 #btn-fleches {
 	position: relative;
-	top: 25px;
-	left: 38px;
+	bottom: 107px;
+	right: 10px;
 	z-index: 2;
 	cursor: pointer;
+}
+
+.visibility {
+	visibility: hidden;
 }

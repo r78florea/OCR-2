@@ -121,6 +121,7 @@ function ouvreModale() {
 btnFermeModale.addEventListener("click", (e) => {
     e.preventDefault();
     fermeModale();
+    modaleAjoutFerme();
 })
 // Creation fermeture de la modale
 function fermeModale() {
@@ -138,9 +139,7 @@ overlay.addEventListener("click", windowOnClick);
 
 function windowOnClick(event) {
     if (event.target === overlay) {
-        fermeModale();
-        modaleAjoutFerme();
-    
+        fermeModale();    
     }
 }
 
@@ -173,13 +172,13 @@ function afficheTravauxModale() {
 
         let btnFleches = document.createElement('img');
         btnFleches.src = './assets/images/Move.png';
-        btnFleches.id = "btn-fleches"
-        btnFleches.classList.add('hidden');
+        btnFleches.id = "btn-fleches";
+        btnFleches.classList.add('visibility');
         figure.addEventListener('mouseenter', ()=> {
-            btnFleches.classList.remove('hidden')
+            btnFleches.classList.remove('visibility');
         })
         figure.addEventListener('mouseleave', ()=> {
-            btnFleches.classList.add('hidden')
+            btnFleches.classList.add('visibility');
         })
 
 
@@ -263,7 +262,11 @@ function modaleAjoutAffiche() {
     modaleAjout.classList.add("flex");
 }
 
+let btnFermeModaleAjout = document.querySelector('.btn-fermeture');
+btnFermeModaleAjout.addEventListener('click', modaleAjoutFerme());
+
 function modaleAjoutFerme() {
+    // btnFermeModaleAjout.addEventListener('click',)
     modaleAjout.classList.remove("flex");
 }
 
