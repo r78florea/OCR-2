@@ -686,6 +686,11 @@ color: #B9C5CC;
 .hidden {
 	display: none;
 }
-.btnChargeP {
 
+#btn-fleches {
+	position: relative;
+	top: 25px;
+	left: 38px;
+	z-index: 2;
+	cursor: pointer;
 }

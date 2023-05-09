@@ -1,6 +1,6 @@
 // Recuperation des travaux depuis le backend avec fetch
 const worksApi = await fetch(`http://localhost:5678/api/works`)
-const works = await worksApi.json()
+let works = await worksApi.json()
 //console.log(works)
 
 // Recuperation des catégories depuis le backend avec fetch
@@ -125,6 +125,8 @@ btnFermeModale.addEventListener("click", (e) => {
 // Creation fermeture de la modale
 function fermeModale() {
     overlay.classList.remove("flex");
+    let preview = document.querySelector('#file-preview');
+    preview.classList.add('hidden');
 }
 
 
@@ -138,6 +140,7 @@ function windowOnClick(event) {
     if (event.target === overlay) {
         fermeModale();
         modaleAjoutFerme();
+    
     }
 }
 
@@ -150,7 +153,7 @@ function afficheTravauxModale() {
     let travauxModale = works;
     travauxModale.forEach(function (work) {
         let figure = document.createElement("figure");
-        figure.id = 'figure-modale' + work.id;
+        figure.id = 'figure-modale' + works.id;
         figure.classList.add('figure-modale')
         let img = document.createElement("img");
         img.id = "img-modale";
@@ -167,12 +170,27 @@ function afficheTravauxModale() {
         })
         img.src = work.imageUrl;
         figCaption.innerHTML = "éditer";
+
+        let btnFleches = document.createElement('img');
+        btnFleches.src = './assets/images/Move.png';
+        btnFleches.id = "btn-fleches"
+        btnFleches.classList.add('hidden');
+        figure.addEventListener('mouseenter', ()=> {
+            btnFleches.classList.remove('hidden')
+        })
+        figure.addEventListener('mouseleave', ()=> {
+            btnFleches.classList.add('hidden')
+        })
+
+
+        
         figure.appendChild(btnSuppProjet);
         figure.appendChild(img);
         figure.appendChild(figCaption);
+        figure.appendChild(btnFleches);
         conteneurModale.appendChild(figure);
 
-
+        
 
     })
 }
@@ -202,16 +220,16 @@ function suppressionTravaux(id) {
     // })
 
         // .then(response => response.json())
-        .then(response => {
-            
-            // preventDefault();
-
-            const figureSiteDelete = document.getElementById('figure' + works.id);
-
-            if(response.status === 204 && (figureSiteDelete)) {
+        .then(response =>{
+            // let works = worksApi.json()
+            let figureSiteDelete = document.getElementById(`figure${works.id}`) ;
+            let figureModaleDelete = document.getElementById(`figure${works.id}`);
+            if(response.status === 204 && (figureSiteDelete && figureModaleDelete)) {
+               
                 figureSiteDelete.remove(figureSiteDelete);
+                figureModaleDelete.remove(figureModaleDelete);
             } else (
-                alert('la vignette n\'a pu etre effaccee')
+                alert('la vignette n\'a pu etre effacee')
             )
         })        
 
@@ -272,10 +290,10 @@ categories.forEach(function (categorie) {
 function chargerFichier() {
 
     //declaration des variables
-    const documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
-    const choixTitre = document.querySelector('#titre').value;
-    const choixCategorie = document.querySelector('#categories').value;
-    const bearer = sessionStorage.getItem("bearer");
+    let documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
+    let choixTitre = document.querySelector('#titre').value;
+    let choixCategorie = document.querySelector('#categories').value;
+    let bearer = sessionStorage.getItem("bearer");
 
     let formData = new FormData();
     formData.append('image', documentCharge);
@@ -295,27 +313,20 @@ function chargerFichier() {
         },
         body: formData,
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            // ajouter vignettes sur la page principale et sur la modale n1
+    .then(response => {
+            if(response === 201) {
+
+    
+
+            }
+        
         })
-        // .then(response => {
-        //     if(response.ok) {
-
-        //         response.preventDefault();
-
-        //             let figure = document.createElement("figure");
-        //             figure.id = 'figure' + works.id;
-        //             let img = document.createElement("img");
-        //             let figCaption = document.createElement("figcaption");
-        //             img.src = works.imageUrl;
-        //             figCaption.innerHTML = works.title;
-        //             figure.appendChild(img);
-        //             figure.appendChild(figCaption);
-        //             sectionGallery.appendChild(figure);
-        //     }
+        // .then(res => res.json())
+        // .then(data => {
+            // console.log(data);
+            // ajouter vignettes sur la page principale et sur la modale n1
         // })
+        // 
            
            
 
