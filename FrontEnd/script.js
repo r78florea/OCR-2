@@ -48,15 +48,15 @@ function afficheTravaux(categorie) {
 
     // Affichage des travaux
     travauxFiltres.forEach(function (work) {
-        const figure = document.createElement("figure");
-        figure.id = 'figure' + works.id;
+        let figureSite = document.createElement("figure");
+        figureSite.id = 'figure' + work.id;
         const img = document.createElement("img");
         const figCaption = document.createElement("figcaption");
         img.src = work.imageUrl;
         figCaption.innerHTML = work.title;
-        figure.appendChild(img);
-        figure.appendChild(figCaption);
-        sectionGallery.appendChild(figure);
+        figureSite.appendChild(img);
+        figureSite.appendChild(figCaption);
+        sectionGallery.appendChild(figureSite);
     })
 
 }
@@ -151,9 +151,9 @@ function afficheTravauxModale() {
 
     let travauxModale = works;
     travauxModale.forEach(function (work) {
-        let figure = document.createElement("figure");
-        figure.id = 'figure-modale' + works.id;
-        figure.classList.add('figure-modale')
+        let figureModale = document.createElement("figure");
+        figureModale.id = 'figure-modale' + work.id;
+        figureModale.classList.add('figure-modale')
         let img = document.createElement("img");
         img.id = "img-modale";
         const figCaption = document.createElement("figcaption");
@@ -174,20 +174,20 @@ function afficheTravauxModale() {
         btnFleches.src = './assets/images/Move.png';
         btnFleches.id = "btn-fleches";
         btnFleches.classList.add('visibility');
-        figure.addEventListener('mouseenter', ()=> {
+        figureModale.addEventListener('mouseenter', ()=> {
             btnFleches.classList.remove('visibility');
         })
-        figure.addEventListener('mouseleave', ()=> {
+        figureModale.addEventListener('mouseleave', ()=> {
             btnFleches.classList.add('visibility');
         })
 
 
         
-        figure.appendChild(btnSuppProjet);
-        figure.appendChild(img);
-        figure.appendChild(figCaption);
-        figure.appendChild(btnFleches);
-        conteneurModale.appendChild(figure);
+        figureModale.appendChild(btnSuppProjet);
+        figureModale.appendChild(img);
+        figureModale.appendChild(figCaption);
+        figureModale.appendChild(btnFleches);
+        conteneurModale.appendChild(figureModale);
 
         
 
@@ -220,16 +220,16 @@ function suppressionTravaux(id) {
 
         // .then(response => response.json())
         .then(response =>{
-            // let works = worksApi.json()
-            let figureSiteDelete = document.getElementById(`figure${works.id}`) ;
-            let figureModaleDelete = document.getElementById(`figure${works.id}`);
+            // let work = works.id;
+            let figureSiteDelete = figureSite.id;
+            let figureModaleDelete = figureModale.id;
             if(response.status === 204 && (figureSiteDelete && figureModaleDelete)) {
                
                 figureSiteDelete.remove(figureSiteDelete);
                 figureModaleDelete.remove(figureModaleDelete);
-            } else (
+            } else {
                 alert('la vignette n\'a pu etre effacee')
-            )
+            }
         })        
 
    
