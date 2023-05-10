@@ -33,7 +33,7 @@ document.querySelector("#btn-publier").addEventListener('click', function () {
 
 function afficheTravaux(categorie) {
 
-    const sectionGallery = document.querySelector(".gallery");
+    let sectionGallery = document.querySelector(".gallery");
 
     // Remise à zéro de la section gallery
     sectionGallery.innerHTML = "";
@@ -47,15 +47,18 @@ function afficheTravaux(categorie) {
     }
 
     // Affichage des travaux
+
+
+
     travauxFiltres.forEach(function (work) {
         let figureSite = document.createElement("figure");
         figureSite.id = 'figure' + work.id;
-        const img = document.createElement("img");
-        const figCaption = document.createElement("figcaption");
-        img.src = work.imageUrl;
-        figCaption.innerHTML = work.title;
-        figureSite.appendChild(img);
-        figureSite.appendChild(figCaption);
+        let imgSite = document.createElement("img");
+        let figCaptionSite = document.createElement("figcaption");
+        imgSite.src = work.imageUrl;
+        figCaptionSite.innerHTML = work.title;
+        figureSite.appendChild(imgSite);
+        figureSite.appendChild(figCaptionSite);
         sectionGallery.appendChild(figureSite);
     })
 
@@ -139,7 +142,7 @@ overlay.addEventListener("click", windowOnClick);
 
 function windowOnClick(event) {
     if (event.target === overlay) {
-        fermeModale();    
+        fermeModale();
     }
 }
 
@@ -151,13 +154,14 @@ function afficheTravauxModale() {
 
     let travauxModale = works;
     travauxModale.forEach(function (work) {
+
         let figureModale = document.createElement("figure");
         figureModale.id = 'figure-modale' + work.id;
         figureModale.classList.add('figure-modale')
-        let img = document.createElement("img");
-        img.id = "img-modale";
-        const figCaption = document.createElement("figcaption");
-        figCaption.id = "figCaption-modale";
+        let imgModale = document.createElement("img");
+        imgModale.id = "img-modale";
+        const figCaptionModale = document.createElement("figcaption");
+        figCaptionModale.id = "figCaption-modale";
         let btnSuppProjet = document.createElement("button");
         btnSuppProjet = document.createElement('img');
         btnSuppProjet.classList.add("btnPoubelle");
@@ -167,29 +171,29 @@ function afficheTravauxModale() {
             e.preventDefault();
             suppressionTravaux(work.id);
         })
-        img.src = work.imageUrl;
-        figCaption.innerHTML = "éditer";
+        imgModale.src = work.imageUrl;
+        figCaptionModale.innerHTML = "éditer";
 
         let btnFleches = document.createElement('img');
         btnFleches.src = './assets/images/Move.png';
         btnFleches.id = "btn-fleches";
         btnFleches.classList.add('visibility');
-        figureModale.addEventListener('mouseenter', ()=> {
+        figureModale.addEventListener('mouseenter', () => {
             btnFleches.classList.remove('visibility');
         })
-        figureModale.addEventListener('mouseleave', ()=> {
+        figureModale.addEventListener('mouseleave', () => {
             btnFleches.classList.add('visibility');
         })
 
 
-        
+
         figureModale.appendChild(btnSuppProjet);
-        figureModale.appendChild(img);
-        figureModale.appendChild(figCaption);
+        figureModale.appendChild(imgModale);
+        figureModale.appendChild(figCaptionModale);
         figureModale.appendChild(btnFleches);
         conteneurModale.appendChild(figureModale);
 
-        
+
 
     })
 }
@@ -210,29 +214,26 @@ function suppressionTravaux(id) {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${bearer}`,
-            // body: JSON,
             'content-type': 'application/json',
         }
     })
-    //     .then(response => {
-    //         console.log(response.status);
-    // })
 
-        // .then(response => response.json())
-        .then(response =>{
-            // let work = works.id;
-            let figureSiteDelete = figureSite.id;
-            let figureModaleDelete = figureModale.id;
-            if(response.status === 204 && (figureSiteDelete && figureModaleDelete)) {
-               
-                figureSiteDelete.remove(figureSiteDelete);
-                figureModaleDelete.remove(figureModaleDelete);
+        .then(response => {
+
+            let figureSiteDelete = document.getElementById(`figure${id}`);
+            let figureModaleDelete = document.getElementById(`figure-modale${id}`);
+
+            if (response.status === 204 && (figureSiteDelete || figureModaleDelete)) {
+
+                figureSiteDelete.remove();
+                figureModaleDelete.remove();
+                // alert('Projet supprim\é avec succes');
             } else {
-                alert('la vignette n\'a pu etre effacee')
+                alert('Erreur lors de la suppression du projet');
             }
-        })        
+        })
 
-   
+
 }
 
 
@@ -316,22 +317,62 @@ function chargerFichier() {
         },
         body: formData,
     })
-    .then(response => {
-            if(response === 201) {
+        .then(response => {
+            if (response.status === 201) {
 
-    
+                // alert('Projet ajout\é avec succes')
+                // let documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
+                let work = works
+                let sectionGallery = document.querySelector(".gallery");
+                let conteneurModale = document.querySelector(".galerie-modale");
+                // let workObject = works.length[-1];
+                // let lastUploadWork = Object.keys(workObject);
+                // let lastUploadUrl = imageUrl[imageUrl.length - 1];
+                // let lastUploadUrlValue = workObject[lastUploadUrl];
+
+                // sectionGallery.innerHTML = "";
+                // conteneurModale.innerHTML = "";
+
+
+                // afficheTravaux();
+                // afficheTravauxModale();
+
+
+                let figureSite = document.createElement("figure");
+                figureSite.id = 'figure' + choixCategorie;
+                let imgSite = document.createElement("img");
+                imgSite.src = work.length.imageUrl[-1]
+                let figCaptionSite = document.createElement("figcaption");
+                figCaptionSite.innerHTML = choixTitre;
+
+                let figureModale = document.createElement("figure");
+                figureModale.id = 'figure-modale' + choixCategorie;
+                figureModale.classList.add('figure-modale')
+                let imgModale = document.createElement("img");
+                imgModale.src = work.length.imageUrl[-1];
+                imgModale.id = 'img-modale';
+                let figCaptionModale = document.createElement("figcaption");
+                figCaptionModale.id = 'figcaption-modale';
+                figCaptionModale.innerHTML = 'éditer';
+
+                figureSite.appendChild(imgSite);
+                figureSite.appendChild(figCaptionSite);
+                figureModale.appendChild(imgModale);
+                figureModale.appendChild(figCaptionModale);
+                sectionGallery.appendChild(figureSite);
+                conteneurModale.appendChild(figureModale);
 
             }
-        
+
         })
-        // .then(res => res.json())
-        // .then(data => {
-            // console.log(data);
-            // ajouter vignettes sur la page principale et sur la modale n1
-        // })
-        // 
-           
-           
+    // .then(res => res.json())
+    // .then(data => {
+    // console.log(data);
+    // ajouter vignettes sur la page principale et sur la modale n1
+    // })
+    // 
+
+
 
 }
 
