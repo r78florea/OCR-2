@@ -1,5 +1,5 @@
 // Recuperation des travaux depuis le backend avec fetch
-const worksApi = await fetch(`http://localhost:5678/api/works`)
+let worksApi = await fetch(`http://localhost:5678/api/works`)
 let works = await worksApi.json()
 //console.log(works)
 
@@ -129,8 +129,7 @@ btnFermeModale.addEventListener("click", (e) => {
 // Creation fermeture de la modale
 function fermeModale() {
     overlay.classList.remove("flex");
-    let preview = document.querySelector('#file-preview');
-    preview.classList.add('hidden');
+   
 }
 
 
@@ -220,13 +219,18 @@ function suppressionTravaux(id) {
 
         .then(response => {
 
-            let figureSiteDelete = document.getElementById(`figure${id}`);
-            let figureModaleDelete = document.getElementById(`figure-modale${id}`);
+        
+            if (response.status === 204) {
 
-            if (response.status === 204 && (figureSiteDelete || figureModaleDelete)) {
-
-                figureSiteDelete.remove();
-                figureModaleDelete.remove();
+                let figureSiteDelete = document.getElementById(`figure${id}`);
+                    if (figureSiteDelete){
+                        figureSiteDelete.remove();
+                    }
+                let figureModaleDelete = document.getElementById(`figure-modale${id}`);
+                    if (figureModaleDelete){
+                        figureModaleDelete.remove();
+                    }
+        
                 // alert('Projet supprim\é avec succes');
             } else {
                 alert('Erreur lors de la suppression du projet');
@@ -269,6 +273,8 @@ btnFermeModaleAjout.addEventListener('click', modaleAjoutFerme());
 function modaleAjoutFerme() {
     // btnFermeModaleAjout.addEventListener('click',)
     modaleAjout.classList.remove("flex");
+    let preview = document.querySelector('#file-preview');
+    preview.classList.add('hidden');
 }
 
 
@@ -317,14 +323,14 @@ function chargerFichier() {
         },
         body: formData,
     })
-        .then(response => {
+        .then(async response => {
             if (response.status === 201) {
 
                 // alert('Projet ajout\é avec succes')
                 // let documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
-                let work = works
-                let sectionGallery = document.querySelector(".gallery");
-                let conteneurModale = document.querySelector(".galerie-modale");
+                // let work = works
+                // let sectionGallery = document.querySelector(".gallery");
+                // let conteneurModale = document.querySelector(".galerie-modale");
                 // let workObject = works.length[-1];
                 // let lastUploadWork = Object.keys(workObject);
                 // let lastUploadUrl = imageUrl[imageUrl.length - 1];
@@ -338,29 +344,35 @@ function chargerFichier() {
                 // afficheTravauxModale();
 
 
-                let figureSite = document.createElement("figure");
-                figureSite.id = 'figure' + choixCategorie;
-                let imgSite = document.createElement("img");
-                imgSite.src = work.length.imageUrl[-1]
-                let figCaptionSite = document.createElement("figcaption");
-                figCaptionSite.innerHTML = choixTitre;
+                // let figureSite = document.createElement("figure");
+                // figureSite.id = 'figure' + choixCategorie;
+                // let imgSite = document.createElement("img");
+                // imgSite.src = work.length.imageUrl[-1]
+                // let figCaptionSite = document.createElement("figcaption");
+                // figCaptionSite.innerHTML = choixTitre;
 
-                let figureModale = document.createElement("figure");
-                figureModale.id = 'figure-modale' + choixCategorie;
-                figureModale.classList.add('figure-modale')
-                let imgModale = document.createElement("img");
-                imgModale.src = work.length.imageUrl[-1];
-                imgModale.id = 'img-modale';
-                let figCaptionModale = document.createElement("figcaption");
-                figCaptionModale.id = 'figcaption-modale';
-                figCaptionModale.innerHTML = 'éditer';
+                // let figureModale = document.createElement("figure");
+                // figureModale.id = 'figure-modale' + choixCategorie;
+                // figureModale.classList.add('figure-modale')
+                // let imgModale = document.createElement("img");
+                // imgModale.src = work.length.imageUrl[-1];
+                // imgModale.id = 'img-modale';
+                // let figCaptionModale = document.createElement("figcaption");
+                // figCaptionModale.id = 'figcaption-modale';
+                // figCaptionModale.innerHTML = 'éditer';
 
-                figureSite.appendChild(imgSite);
-                figureSite.appendChild(figCaptionSite);
-                figureModale.appendChild(imgModale);
-                figureModale.appendChild(figCaptionModale);
-                sectionGallery.appendChild(figureSite);
-                conteneurModale.appendChild(figureModale);
+                // figureSite.appendChild(imgSite);
+                // figureSite.appendChild(figCaptionSite);
+                // figureModale.appendChild(imgModale);
+                // figureModale.appendChild(figCaptionModale);
+                // sectionGallery.appendChild(figureSite);
+                // conteneurModale.appendChild(figureModale);
+
+                worksApi = await fetch(`http://localhost:5678/api/works`);
+                works = await worksApi.json();
+                afficheTravaux(0);
+                afficheTravauxModale();
+                modaleAjoutFerme();
 
             }
 
