@@ -48,8 +48,6 @@ function afficheTravaux(categorie) {
 
     // Affichage des travaux
 
-
-
     travauxFiltres.forEach(function (work) {
         let figureSite = document.createElement("figure");
         figureSite.id = 'figure' + work.id;
@@ -97,16 +95,16 @@ function afficheFiltres() {
 
 
 
+
+
 // Creation de la fonctionalite d'ouverture et de fermeture de la modale
-
-
 
 
 // Selection des valeurs dans des variables des differents boutons: 
 let modale = document.querySelector(".modale-premiere");
 let overlay = document.querySelector(".overlay");
 let btnLanceModale = document.querySelector("#btn-modale");
-let btnFermeModale = document.querySelector(".btn-fermeture");
+let btnFermeModale = document.querySelector("#btn-fermeture-premier");
 
 // ajout de l'eventlistner sur le bouton de lancement
 btnLanceModale.addEventListener("click", (e) => {
@@ -119,26 +117,19 @@ function ouvreModale() {
     overlay.classList.add("flex");
     afficheTravauxModale();
 }
-
-// Creation de l'eventListener sur le bouton de fermeture
 btnFermeModale.addEventListener("click", (e) => {
     e.preventDefault();
     fermeModale();
-    modaleAjoutFerme();
+    // modaleAjoutFerme();
 })
-// Creation fermeture de la modale
+// Creation de la fonction de fermeture de la modale
 function fermeModale() {
     overlay.classList.remove("flex");
-   
+    // modaleAjout.classList.remove('flex');
 }
-
-
-// Creation de l'eventListener qui permet la fermeture de la modale en cliquant en dehors de celle ci
-
 overlay.addEventListener("click", windowOnClick);
 
 // Creation de la fonction qui permet la fermeture de la modale en cliquant en dehors de celle ci
-
 function windowOnClick(event) {
     if (event.target === overlay) {
         fermeModale();
@@ -184,7 +175,7 @@ function afficheTravauxModale() {
         btnFleches.classList.add()
         btnFleches.classList.add('btn-fleches')
         btnFleches.classList.add('visibility');
-      
+
 
 
         figureModale.appendChild(btnSuppProjet);
@@ -201,9 +192,7 @@ function afficheTravauxModale() {
 
 
 
-
 //Supression des travaux
-
 
 function suppressionTravaux(id) {
     // let id = btnSuppProjet.id;
@@ -219,19 +208,17 @@ function suppressionTravaux(id) {
     })
 
         .then(response => {
-
-        
             if (response.status === 204) {
 
                 let figureSiteDelete = document.getElementById(`figure${id}`);
-                    if (figureSiteDelete){
-                        figureSiteDelete.remove();
-                    }
+                if (figureSiteDelete) {
+                    figureSiteDelete.remove();
+                }
                 let figureModaleDelete = document.getElementById(`figure-modale${id}`);
-                    if (figureModaleDelete){
-                        figureModaleDelete.remove();
-                    }
-        
+                if (figureModaleDelete) {
+                    figureModaleDelete.remove();
+                }
+
                 // alert('Projet supprim\é avec succes');
             } else {
                 alert('Erreur lors de la suppression du projet');
@@ -247,12 +234,11 @@ function suppressionTravaux(id) {
 
 //Modale ajout de photos
 
-// Stockage des variables                
 const modaleAjout = document.querySelector(".modale-ajout");
 const btnAjouter = document.querySelector("#btnAjouterPhoto");
 const btnRetour = document.querySelector(".btn-retour");
+let btnFermeModaleAjout = document.querySelector('#btn-fermeture-ajout');
 
-// Declaration de l'eventListener
 btnAjouter.addEventListener('click', (e) => {
     e.preventDefault();
     modaleAjoutAffiche();
@@ -263,27 +249,29 @@ btnRetour.addEventListener('click', (e) => {
     modaleAjoutFerme();
 });
 
-//Creation de la fonction d'ouverture et de fermeture de la modale d'ajout
+//Creation des fonctions d'ouverture et de fermeture de la modale d'ajout
 function modaleAjoutAffiche() {
     modaleAjout.classList.add("flex");
 }
 
-let btnFermeModaleAjout = document.querySelector('.btn-fermeture');
-btnFermeModaleAjout.addEventListener('click', modaleAjoutFerme());
+
+btnFermeModaleAjout.addEventListener('click', (e) => {
+    e.preventDefault();
+    modaleAjoutFerme();
+});
 
 function modaleAjoutFerme() {
     // btnFermeModaleAjout.addEventListener('click',)
     modaleAjout.classList.remove("flex");
     let preview = document.querySelector('#file-preview');
     preview.classList.add('hidden');
+
 }
 
 
 // Creation de la fonctionalite d'ajout d'images.
 
-
 //creation des options select
-
 let selectInput = document.querySelector("select")
 categories.forEach(function (categorie) {
     let optionChoice = document.createElement('option')
@@ -293,13 +281,12 @@ categories.forEach(function (categorie) {
 
 })
 
+
+
+
 // Creation de la fonction enregistrer
 
-
-
-
 function enregistrerFichier() {
-
     //declaration des variables
     let documentCharge = document.querySelector('#btn-ajout-fichier').files[0];
     let choixTitre = document.querySelector('#titre').value;
@@ -314,7 +301,6 @@ function enregistrerFichier() {
 
 
     //Appel a l'api via fetch
-
     fetch('http://localhost:5678/api/works', {
         method: "POST",
         headers: {
@@ -338,11 +324,18 @@ function enregistrerFichier() {
             }
 
         })
-    
+
 }
+let btnValider = document.querySelector('.btn-valider');
+btnValider.addEventListener('mouseenter', () => {
+    btnValider.classList.add('valide');
+});
+
+btnValider.addEventListener('mouseleave', () => {
+    btnValider.classList.remove('valide');
+})
 
 //eventlistener sur le bouton valider et appel de la fonction
-const btnValider = document.getElementById('btn-valider');
 btnValider.addEventListener('click', (e) => {
     e.preventDefault();
     enregistrerFichier();
@@ -360,6 +353,9 @@ const previewImage = () => {
             preview.setAttribute('src', event.target.result);
         }
         fileReader.readAsDataURL(file[0]);
+        let boutonCharger = document.querySelector('#btn-ajout-fichier-visible');
+        boutonCharger.classList.add('hidden');
+
     }
     preview.classList.remove('hidden');
 

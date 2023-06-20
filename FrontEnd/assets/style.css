@@ -233,55 +233,7 @@ footer nav ul {
 	background-color: #1D6154;
 }
 
-/* A partir de la se trouve le code CSS pour la page login */
-/* 
-#login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 160px;
-}
 
-#gras {
-    font-weight: 600;
-}
-
-.zoneText {
-    gap: 20px;
-    width: 380px;
-    height: 50px;
-    border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	font-size: 20px;
-}
-
-#submit {
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-	display: block;
-	cursor: pointer;
-}
-
-#submit:hover {
-	cursor: pointer;
-}
-
-#oubli:hover:active:visited {
-    color: black;
-}
-
-label {
-	margin-bottom: 5px;
-	display: block;
-}
-
-input {
-	margin-bottom: 20px;
-} */
-
-/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
 
 /* Ici s'arrete le code CSS pour la page login */
 
@@ -383,19 +335,16 @@ p.icone {
 	background-color: white;
 	z-index: 2;
 	border-radius: 10px;
-	/* padding-bottom: 30px; */
+	padding-bottom: 30px;
+
 }
 
 
 .galerie-modale {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	display: grid;
-	/* height: 400px; */
-	/* padding: 0  70px; */
-	/* ATTENTION PADDING AJOUTE*/
 	margin: 0 105px;
 	grid-column-gap: 7px;
-	/* grid-row-gap: 5px; */
 
 }
 
@@ -421,7 +370,6 @@ p.icone {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
-	/* backdrop-filter: blur(3px); */
 	z-index: 1;
 	display: none;
 	justify-content: center;
@@ -445,7 +393,16 @@ p.icone {
 	margin: 0px;
 }
 
-.btn-fermeture {
+#btn-fermeture-premier {
+	cursor: pointer;
+	margin: 30px 35px 0 0;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+#btn-fermeture-ajout {
 	cursor: pointer;
 	margin: 30px 35px 0 0;
 	border: none;
@@ -456,15 +413,11 @@ p.icone {
 
 .divider {
 	width: 420px;
-	/* margin-top: 30px; */
 	border-top: 0,5px solid #B3B3B3;
 }
 
 #div-btn-ajouterPhoto {
-	/* margin-top: 40px; */
 	/* ATTENTION MARGINS AJOUTES*/
-	/* gap: 30px; */
-	/* padding-top: 40px; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -485,10 +438,8 @@ p.icone {
 
 .img-modale {
 	object-fit: cover;
-	/* min-height: 100px; */
 	height: 100px;
  	width: 80px;
-	/* min-width: ; */
 }
 
 .figCaption-modale {
@@ -502,9 +453,7 @@ p.icone {
 #figure-modale {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: flex-end; */
 	align-items: flex-start;
-	/* height: 100px; */
 }
 
 .btnPoubelle {
@@ -513,7 +462,6 @@ p.icone {
 	left: 18px;
 	z-index: 2;
 	cursor: pointer;
-	/* background-image: url('./assets/images/Group 10.png'); */
 }
 
 /* FIN CREATION DE LA MODALE */
@@ -539,7 +487,7 @@ p.icone {
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	padding: 0 0 20px 0;
+	padding: 0 0 40px 0;
 }	
 
 .btn-modale-ajout {
@@ -567,7 +515,6 @@ p.icone {
 	justify-content: center;
 	align-items: center;
 }
-/* .zone-ajout-fichier */
 #conteneur-modale-ajout p {
 	font-family: 'Work Sans';
 	font-size: 10px;
@@ -592,7 +539,7 @@ p.icone {
 	border: none;
 }
 
-#btn-valider {
+.btn-valider {
 	cursor: pointer;
 	display: block;
 	border: none;
@@ -602,8 +549,12 @@ p.icone {
 	font-size: 14px;
 	color: white;
 	font-family: 'Work Sans', sans-serif;
-	background-color: #1D6154;
+	background-color: #A7A7A7;
 	margin: 0 auto;
+}
+
+.valide {
+	background-color: #1D6154;
 }
 
 label {
