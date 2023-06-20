@@ -228,66 +228,20 @@ footer nav ul {
 }
 
 .btn-filtres:hover {
+	cursor: pointer;
 	color: #ffffff;
 	background-color: #1D6154;
 }
 
-/* A partir de la se trouve le code CSS pour la page login */
-/* 
-#login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 160px;
-}
 
-#gras {
-    font-weight: 600;
-}
-
-.zoneText {
-    gap: 20px;
-    width: 380px;
-    height: 50px;
-    border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	font-size: 20px;
-}
-
-#submit {
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-	display: block;
-	cursor: pointer;
-}
-
-#submit:hover {
-	cursor: pointer;
-}
-
-#oubli:hover:active:visited {
-    color: black;
-}
-
-label {
-	margin-bottom: 5px;
-	display: block;
-}
-
-input {
-	margin-bottom: 20px;
-} */
-
-/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
 
 /* Ici s'arrete le code CSS pour la page login */
 
 
 /* Ici commence le code CSS pour la page home_edit1 */
 
-/* .publication {
+
+ .publication {
 	color: white;
 	height: 60px;
 	display: flex;
@@ -298,6 +252,11 @@ input {
 	background-color: black;
 	gap: 20px;
 }
+
+.non-connecte {
+	display: none;
+}
+
 
 .publication .material-symbols-outlined p {
 	color: #ffffff;
@@ -319,7 +278,7 @@ input {
 	text-decoration: none;
 }
 
- p.icone {
+p.icone {
 	margin: 0;
 	font-family: 'Work Sans', sans-serif;
 	font-size: 14px;
@@ -337,11 +296,11 @@ input {
 	margin: 15px 0 0 55px;
 }
 
-#intro-icon{
+#intro-icon {
 	margin-bottom: 15px;
 }
 
-#link-btn-modifier {
+.link-btn-modifier {
 	text-decoration: none;
 }
 
@@ -357,11 +316,343 @@ input {
 	border-radius: 60px;
 	background-color: white;
 	color: black;
-} */
-
-/* ATTENTION AVANT DE REFACTORISER! IL N'EST PAS COMPLETEMETN FONCTIONNEL : IL Y A DES MODIFICATIONS DU CODE SOURCE EN PLUS QUI ONT ETE FAITES SUR LE FICHIER CREE EN PLUS */
+}
 
 
-/* Ici s'arrete le code CSS pour la page home_edit1 */
+/* CREATION DE LA MODALE */
+#btn-modale {
+	cursor: pointer;
+	border: none;
+	background-color: white;
+}
+
+.modale-premiere {
+	position: relative;
+	margin: 0 auto;
+	border: none;
+	width: 630px;
+	height: 730px;
+	background-color: white;
+	z-index: 2;
+	border-radius: 10px;
+	padding-bottom: 30px;
+
+}
 
 
+.galerie-modale {
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	display: grid;
+	margin: 0 105px;
+	grid-column-gap: 7px;
+
+}
+
+#btnAjouterPhoto {
+	cursor: pointer;
+	display: block;
+	border: none;
+	border-radius: 60px;
+	width: 237px;
+	height: 37px;
+	font-size: 14px;
+	color: white;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #1D6154;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.titre-modale {
+	font-size: 25px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	color: black;
+}
+
+#div-btn-fermeture {
+	display: flex;
+	justify-content: flex-end;
+}
+.modale-premiere h2 {
+	margin: 0px;
+}
+
+#btn-fermeture-premier {
+	cursor: pointer;
+	margin: 30px 35px 0 0;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+#btn-fermeture-ajout {
+	cursor: pointer;
+	margin: 30px 35px 0 0;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.divider {
+	width: 420px;
+	border-top: 0,5px solid #B3B3B3;
+}
+
+#div-btn-ajouterPhoto {
+	/* ATTENTION MARGINS AJOUTES*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 75px;
+}
+
+#supprimerGalerie {
+	display: block;
+	border: none;
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #D65353;
+	cursor: pointer;
+}
+
+.img-modale {
+	object-fit: cover;
+	height: 100px;
+ 	width: 80px;
+}
+
+.figCaption-modale {
+	font-size: 12px;
+	font-family: 'Work Sans', sans-serif;
+	color: black;
+	font-weight: 400;
+	margin-top: 3px;
+}
+
+#figure-modale {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.btnPoubelle {
+	position: relative;
+	top: 29px;
+	left: 18px;
+	z-index: 2;
+	cursor: pointer;
+}
+
+/* FIN CREATION DE LA MODALE */
+
+/* ICI S'ARRETE LE CODE CSS POUR HOMEPAGE_EDIT1 */
+
+													/* ICI COMMENCE LE CODE DE LA DEUXIEME MODALE */
+
+
+.modale-ajout {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+
+	margin: 0 auto;
+	border: none;
+	width: 630px;
+	height: 670px;
+	background-color: white;
+	z-index: 2;
+	border-radius: 10px;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 0 40px 0;
+}	
+
+.btn-modale-ajout {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.btn-retour {
+	cursor: pointer;
+	border: none;
+	background-color: white;
+	font-weight: 700;
+	font-size: 20px;
+	margin: 30px 0px 0px 35px;
+}
+
+.zone-ajout-fichier {
+	width: 420px;
+	height: 170px;
+	margin-bottom: 55px;
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#conteneur-modale-ajout p {
+	font-family: 'Work Sans';
+	font-size: 10px;
+	color: #444444;
+}
+
+
+#titre {
+	width: 420px;
+	height: 51px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+
+}
+
+#categories {
+	width: 420px;
+	height: 51px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+}
+
+.btn-valider {
+	cursor: pointer;
+	display: block;
+	border: none;
+	border-radius: 60px;
+	width: 237px;
+	height: 37px;
+	font-size: 14px;
+	color: white;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #A7A7A7;
+	margin: 0 auto;
+}
+
+.valide {
+	background-color: #1D6154;
+}
+
+label {
+	font-family: 'Work Sans' sans-serif;
+	color: black;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 5px;
+}
+
+ .titre-form{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+input {
+	margin-bottom: 30px;
+}
+
+.ajout {
+	width: 420px;
+	border-top: 0,5px solid #B3B3B3;
+	margin: 45px 0px 40px 0px;
+}
+
+[value] {
+	font-size: 40px;
+}
+
+.modif {
+	display: none;
+}
+
+#icone-ajout-image{
+font-size: 70px;
+color: #B9C5CC;
+}
+
+#btn-ajout-fichier-visible{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin-top: 20px;
+	width: 173px;
+	height: 36px;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	color: #306685;
+	background: #CBD6DC;
+	border-radius: 50px;
+	border: none;
+}
+
+#btn-ajout-fichier {
+	display: none;
+}
+
+
+#conteneur-modale-ajout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.flex {
+	display: flex;
+}
+
+.pointer { 
+	cursor: pointer;
+}
+#file-preview {
+	position: absolute;
+	height: 170px;
+	width: 130px;
+	z-index: 2;
+}
+.hidden {
+	display: none;
+}
+
+.btn-fleches {
+	position: relative;
+	bottom: 107px;
+	right: 10px;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.visibility {
+	visibility: hidden;
+}

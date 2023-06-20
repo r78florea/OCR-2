@@ -5,8 +5,6 @@ btnSubmit.addEventListener('click', (e)=> {
     connexion();
 })
 
-
-
 //Creation de la fonction de connexion
 
 async function connexion() {  
@@ -32,13 +30,8 @@ async function connexion() {
     
     // Gestion de la redirection en fonction de la verification
     if (promise.status === 200) {
-        sessionStorage.setItem(1, verif.token);
-        document.location.href="./homepage_edit.html";
+        sessionStorage.setItem("bearer", verif.token);
+        document.location.href="./index.html";
     } else {
         alert('Echec de la connexion: l\'e-mail ou le mot de passe sont incorrects')
-}
-
-}
-
-
-
+}}
